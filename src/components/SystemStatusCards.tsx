@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { Activity, Atom, Zap, Thermometer } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Activity, Zap, Thermometer } from 'lucide-react';
 
 interface SystemStatusCardsProps {
   quantumCoherence: number;
@@ -16,56 +15,64 @@ export const SystemStatusCards: React.FC<SystemStatusCardsProps> = ({
   temperature,
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-      <Card className="bg-slate-800/80 border-cyan-500/30 quantum-glow">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-cyan-300 text-sm flex items-center">
-            <Activity className="w-4 h-4 mr-2" />
-            System Status
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-green-400 mb-1">OPERATIONAL</div>
-          <div className="text-xs text-slate-400">All systems nominal</div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card className="professional-shadow-lg border-border bg-card hover:shadow-xl transition-shadow duration-300">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-muted-foreground text-sm font-medium">Quantum Coherence</p>
+              <p className="text-3xl font-bold text-foreground">{quantumCoherence.toFixed(1)}%</p>
+            </div>
+            <div className="p-3 bg-accent/10 rounded-full">
+              <Zap className="w-6 h-6 text-accent" />
+            </div>
+          </div>
+          <div className="mt-4 bg-muted rounded-full h-2">
+            <div 
+              className="bg-accent h-2 rounded-full transition-all duration-500 status-pulse" 
+              style={{ width: `${quantumCoherence}%` }}
+            />
+          </div>
         </CardContent>
       </Card>
 
-      <Card className="bg-slate-800/80 border-blue-500/30">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-blue-300 text-sm flex items-center">
-            <Atom className="w-4 h-4 mr-2" />
-            Quantum Coherence
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-blue-400 mb-1">{quantumCoherence.toFixed(1)}%</div>
-          <Progress value={quantumCoherence} className="h-2" />
+      <Card className="professional-shadow-lg border-border bg-card hover:shadow-xl transition-shadow duration-300">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-muted-foreground text-sm font-medium">Field Strength</p>
+              <p className="text-3xl font-bold text-foreground">{fieldStrength.toFixed(1)} Tesla</p>
+            </div>
+            <div className="p-3 bg-blue-500/10 rounded-full">
+              <Activity className="w-6 h-6 text-blue-500" />
+            </div>
+          </div>
+          <div className="mt-4 bg-muted rounded-full h-2">
+            <div 
+              className="bg-blue-500 h-2 rounded-full transition-all duration-500" 
+              style={{ width: `${(fieldStrength / 50) * 100}%` }}
+            />
+          </div>
         </CardContent>
       </Card>
 
-      <Card className="bg-slate-800/80 border-green-500/30">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-green-300 text-sm flex items-center">
-            <Zap className="w-4 h-4 mr-2" />
-            Field Strength
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-green-400 mb-1">{fieldStrength.toFixed(1)} T</div>
-          <div className="text-xs text-slate-400">Tesla units</div>
-        </CardContent>
-      </Card>
-
-      <Card className="bg-slate-800/80 border-orange-500/30">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-orange-300 text-sm flex items-center">
-            <Thermometer className="w-4 h-4 mr-2" />
-            Core Temp
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-orange-400 mb-1">{temperature}°C</div>
-          <div className="text-xs text-slate-400">Near absolute zero</div>
+      <Card className="professional-shadow-lg border-border bg-card hover:shadow-xl transition-shadow duration-300">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-muted-foreground text-sm font-medium">Core Temperature</p>
+              <p className="text-3xl font-bold text-foreground">{temperature.toFixed(2)}°C</p>
+            </div>
+            <div className="p-3 bg-green-500/10 rounded-full">
+              <Thermometer className="w-6 h-6 text-green-500" />
+            </div>
+          </div>
+          <div className="mt-4 bg-muted rounded-full h-2">
+            <div 
+              className="bg-green-500 h-2 rounded-full transition-all duration-500" 
+              style={{ width: `${Math.abs(temperature / -273.15) * 100}%` }}
+            />
+          </div>
         </CardContent>
       </Card>
     </div>

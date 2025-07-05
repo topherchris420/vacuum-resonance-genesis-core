@@ -4,26 +4,26 @@ import { Badge } from '@/components/ui/badge';
 
 export const AppHeader: React.FC = () => {
   return (
-    <div className="text-center space-y-4 mb-8">
-      <div className="flex items-center justify-center space-x-4">
+    <div className="text-center space-y-6 mb-12 fade-in">
+      <div className="flex items-center justify-center space-x-6">
         <img 
           src="/lovable-uploads/d419c948-f2e1-4265-99bb-172b8c554ed6.png" 
           alt="Vers3Dynamics Logo"
-          className="w-16 h-16 rounded-lg object-cover border-2 border-cyan-400/30"
+          className="w-20 h-20 rounded-2xl object-cover professional-shadow-lg"
         />
         <div>
-          <h1 className="text-4xl font-bold text-white mb-2">Non-Local Field State Manipulation</h1>
-          <p className="text-cyan-300 text-lg">QVFR-8000 Quantum Vacuum Field Resonance System</p>
+          <h1 className="text-5xl font-bold text-foreground mb-3 tracking-tight">Non-Local Field State Manipulation</h1>
+          <p className="text-muted-foreground text-xl font-medium">QVFR-8000 Quantum Vacuum Field Resonance System</p>
         </div>
       </div>
-      <div className="flex justify-center space-x-4">
-        <Badge variant="outline" className="bg-green-900/50 text-green-300 border-green-500">
+      <div className="flex justify-center space-x-3">
+        <Badge variant="secondary" className="px-4 py-2 text-sm font-medium professional-shadow">
           TRL-7 OPERATIONAL
         </Badge>
-        <Badge variant="outline" className="bg-blue-900/50 text-blue-300 border-blue-500">
+        <Badge variant="outline" className="px-4 py-2 text-sm font-medium professional-shadow">
           CLASSIFIED: TS//SAR//REL
         </Badge>
-        <Badge variant="outline" className="bg-purple-900/50 text-purple-300 border-purple-500">
+        <Badge className="px-4 py-2 text-sm font-medium accent-gradient text-white professional-shadow">
           CODENAME: SHADOW-WEAVER
         </Badge>
       </div>

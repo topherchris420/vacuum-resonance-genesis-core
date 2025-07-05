@@ -30,8 +30,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 p-4">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-7xl mx-auto space-y-8">
         <AppHeader />
         
         <SystemStatusCards 
@@ -40,8 +40,8 @@ const Index = () => {
           temperature={temperature}
         />
 
-        <Tabs defaultValue="overview" className="space-y-4">
-          <TabsList className="grid grid-cols-8 bg-slate-800/50 border border-slate-700">
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="grid grid-cols-8 bg-muted border border-border professional-shadow">
             <TabsTrigger value="overview" className="text-xs">Overview</TabsTrigger>
             <TabsTrigger value="chamber" className="text-xs">Chamber</TabsTrigger>
             <TabsTrigger value="metamaterials" className="text-xs">Metamaterials</TabsTrigger>
