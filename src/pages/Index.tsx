@@ -30,11 +30,24 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-3 sm:p-6">
+    <div className="min-h-screen bg-background p-3 sm:p-6 grid-pattern">
       <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
+        {/* Military Status Header */}
+        <div className="tactical-shadow-lg bg-card/50 backdrop-blur-sm rounded-lg p-4 border border-military-green/20">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-2 h-2 bg-military-green rounded-full status-indicator"></div>
+              <span className="text-xs font-mono text-military-green tracking-wider">SYSTEM ONLINE</span>
+            </div>
+            <div className="text-xs font-mono text-steel-gray">
+              LAST UPDATE: {new Date().toLocaleTimeString()} UTC
+            </div>
+          </div>
+        </div>
+        
         <AppHeader />
         
-        <div className="slide-up">
+        <div className="slide-up-tactical">
           <SystemStatusCards 
             quantumCoherence={quantumCoherence}
             fieldStrength={fieldStrength}
@@ -42,17 +55,17 @@ const Index = () => {
           />
         </div>
 
-        <Tabs defaultValue="overview" className="space-y-4 sm:space-y-6 scale-in">
+        <Tabs defaultValue="overview" className="space-y-4 sm:space-y-6 scale-in-tactical">
           <div className="overflow-x-auto">
-            <TabsList className="flex w-max min-w-full md:grid md:grid-cols-8 bg-muted border border-border professional-shadow">
-              <TabsTrigger value="overview" className="text-xs sm:text-sm whitespace-nowrap">Overview</TabsTrigger>
-              <TabsTrigger value="chamber" className="text-xs sm:text-sm whitespace-nowrap">Chamber</TabsTrigger>
-              <TabsTrigger value="metamaterials" className="text-xs sm:text-sm whitespace-nowrap">Metamaterials</TabsTrigger>
-              <TabsTrigger value="energy" className="text-xs sm:text-sm whitespace-nowrap">Energy Core</TabsTrigger>
-              <TabsTrigger value="quantum" className="text-xs sm:text-sm whitespace-nowrap">Quantum AI</TabsTrigger>
-              <TabsTrigger value="orbital" className="text-xs sm:text-sm whitespace-nowrap">Orbital Sync</TabsTrigger>
-              <TabsTrigger value="security" className="text-xs sm:text-sm whitespace-nowrap">Security</TabsTrigger>
-              <TabsTrigger value="diagnostics" className="text-xs sm:text-sm whitespace-nowrap">Diagnostics</TabsTrigger>
+            <TabsList className="flex w-max min-w-full md:grid md:grid-cols-8 bg-muted border border-border tactical-shadow font-mono">
+              <TabsTrigger value="overview" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">OVERVIEW</TabsTrigger>
+              <TabsTrigger value="chamber" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">CHAMBER</TabsTrigger>
+              <TabsTrigger value="metamaterials" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">METAMATERIALS</TabsTrigger>
+              <TabsTrigger value="energy" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ENERGY CORE</TabsTrigger>
+              <TabsTrigger value="quantum" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">QUANTUM AI</TabsTrigger>
+              <TabsTrigger value="orbital" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ORBITAL SYNC</TabsTrigger>
+              <TabsTrigger value="security" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">SECURITY</TabsTrigger>
+              <TabsTrigger value="diagnostics" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">DIAGNOSTICS</TabsTrigger>
             </TabsList>
           </div>
 
@@ -92,7 +105,7 @@ const Index = () => {
           </TabsContent>
         </Tabs>
 
-        <div className="slide-up">
+        <div className="slide-up-tactical">
           <EmergencyControls />
         </div>
       </div>
