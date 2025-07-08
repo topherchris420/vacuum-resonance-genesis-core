@@ -13,6 +13,10 @@ import { OrbitalSync } from '@/components/OrbitalSync';
 import { SecurityPanel } from '@/components/SecurityPanel';
 import { DiagnosticsPanel } from '@/components/DiagnosticsPanel';
 import { EmergencyControls } from '@/components/EmergencyControls';
+import { QuantumFieldVisualizer } from '@/components/QuantumFieldVisualizer';
+import { AIAssistant } from '@/components/AIAssistant';
+import { ThreatMonitor } from '@/components/ThreatMonitor';
+import { VoiceControl } from '@/components/VoiceControl';
 
 const Index = () => {
   const [quantumCoherence, setQuantumCoherence] = useState(87.3);
@@ -57,13 +61,15 @@ const Index = () => {
 
         <Tabs defaultValue="overview" className="space-y-4 sm:space-y-6 scale-in-tactical">
           <div className="overflow-x-auto">
-            <TabsList className="flex w-max min-w-full md:grid md:grid-cols-8 bg-muted border border-border tactical-shadow font-mono">
+            <TabsList className="flex w-max min-w-full md:grid md:grid-cols-10 bg-muted border border-border tactical-shadow font-mono">
               <TabsTrigger value="overview" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">OVERVIEW</TabsTrigger>
               <TabsTrigger value="chamber" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">CHAMBER</TabsTrigger>
-              <TabsTrigger value="metamaterials" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">METAMATERIALS</TabsTrigger>
-              <TabsTrigger value="energy" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ENERGY CORE</TabsTrigger>
-              <TabsTrigger value="quantum" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">QUANTUM AI</TabsTrigger>
-              <TabsTrigger value="orbital" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ORBITAL SYNC</TabsTrigger>
+              <TabsTrigger value="quantum-viz" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">QUANTUM VIZ</TabsTrigger>
+              <TabsTrigger value="ai-assistant" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">AI COMMAND</TabsTrigger>
+              <TabsTrigger value="threat-monitor" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">THREATS</TabsTrigger>
+              <TabsTrigger value="voice-control" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">VOICE</TabsTrigger>
+              <TabsTrigger value="energy" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ENERGY</TabsTrigger>
+              <TabsTrigger value="orbital" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">ORBITAL</TabsTrigger>
               <TabsTrigger value="security" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">SECURITY</TabsTrigger>
               <TabsTrigger value="diagnostics" className="text-xs sm:text-sm whitespace-nowrap tracking-wider">DIAGNOSTICS</TabsTrigger>
             </TabsList>
@@ -80,8 +86,20 @@ const Index = () => {
             <ChamberControls />
           </TabsContent>
 
-          <TabsContent value="metamaterials" className="space-y-4">
-            <MetamaterialMatrix />
+          <TabsContent value="quantum-viz" className="space-y-4">
+            <QuantumFieldVisualizer />
+          </TabsContent>
+
+          <TabsContent value="ai-assistant" className="space-y-4">
+            <AIAssistant />
+          </TabsContent>
+
+          <TabsContent value="threat-monitor" className="space-y-4">
+            <ThreatMonitor />
+          </TabsContent>
+
+          <TabsContent value="voice-control" className="space-y-4">
+            <VoiceControl />
           </TabsContent>
 
           <TabsContent value="energy" className="space-y-4">
